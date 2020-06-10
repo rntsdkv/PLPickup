@@ -48,7 +48,6 @@ public class Main extends JavaPlugin {
 	}
 
 	public void onDisable() {
-		clearPickupArmorStands();
 		getLogger().info("PLPickup plugin is disable!");
 	}
 
@@ -71,13 +70,6 @@ public class Main extends JavaPlugin {
 			// get rotating process and start it
 			Runnable rotationTask = getPickupRotationTask(armorStand);
 			Bukkit.getScheduler().runTaskTimer(this, rotationTask, 0, 1);
-		}
-	}
-
-	private void clearPickupArmorStands() {
-		for (PickupObject pickup : pickupLoader.getPickups()) {
-			ArmorStand armorStand = (ArmorStand) Bukkit.getEntity(pickup.getUuid());
-			armorStand.remove();
 		}
 	}
 }
