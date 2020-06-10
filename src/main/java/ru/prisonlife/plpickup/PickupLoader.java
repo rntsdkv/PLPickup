@@ -8,6 +8,7 @@ import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import static ru.prisonlife.plpickup.PickupPather.*;
@@ -63,7 +64,10 @@ public class PickupLoader {
 
     public List<PickupObject> getPickups() {
         List<PickupObject> list = new ArrayList<>();
-        for (String pickup : config.getConfigurationSection("pickups").getKeys(false)) {
+        ConfigurationSection section = config.getConfigurationSection("pickups");
+
+        if (!Optional.ofNullable(section).isPresent()) return list;
+        else for (String pickup : section.getKeys(false)) {
             list.add(fromConfig(pickup));
         }
 
