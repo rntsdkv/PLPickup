@@ -10,8 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.EulerAngle;
 import org.bukkit.entity.ArmorStand;
-import ru.prisonlife.plpickup.command.PickupManage;
-import ru.prisonlife.plpickup.command.PickupSet;
+import ru.prisonlife.plpickup.command.*;
 
 public class Main extends JavaPlugin {
 
@@ -47,6 +46,10 @@ public class Main extends JavaPlugin {
 		getLogger().info("PLPickup plugin is enable!");
 		// new PickupManage(this);
 		new PickupSet(this);
+		new PickupDelete(this);
+		new PickupTeleport(this);
+		new PickupList(this);
+		new PickupInfo(this);
 	}
 
 	public void onDisable() {

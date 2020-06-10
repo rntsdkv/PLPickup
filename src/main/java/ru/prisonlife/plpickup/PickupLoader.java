@@ -41,9 +41,10 @@ public class PickupLoader {
         Double y = section.getDouble("y");
         Double z = section.getDouble("z");
         String id = section.getString("id");
+        String text = section.getString("text");
         String uuid = section.getString("uuid");
 
-        return new PickupObject(pickupName, Bukkit.getWorld(world), x, y, z, Material.valueOf(id), UUID.fromString(uuid));
+        return new PickupObject(pickupName, Bukkit.getWorld(world), x, y, z, Material.valueOf(id), text, UUID.fromString(uuid));
     }
 
     public void savePickupObject(PickupObject pickupObject) {

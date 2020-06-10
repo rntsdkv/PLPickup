@@ -1,16 +1,25 @@
 name: PLPickup
 main: ru.prisonlife.plpickup.Main
-version: 1.0
-description: Special plugin for Prison Life project
-
+version: v1.10
 author: rntsdkv
-
 commands:
-  pickup:
-    description: Main command of plugin
-    permission: plpickup.pickup
-    usage:
-      To set new pickup: /pickup set <block ID> <name> <text>
-      To show list of pickups: /pickup list
-      To teleport to pickup: /pickup tp <name>
-      To delete pickup: /pickup delete <name>
+  pickup set:
+    description: Create new pickup
+    permission: plpickup.set
+    usage: /pickup set <block ID> <name> <text>
+  pickup delete:
+    description: Delete pickup
+    permission: plpickup.delete
+    usage: /pickup delete <name>
+  pickup info:
+    description: Show info about pickup
+    permission: plpickup.info
+    usage: /pickup info <name>
+  pickup list:
+    description: Show all created pickups
+    permission: plpickup.list
+    usage: /pickup list
+  pickup tp:
+    description: Teleport to pickup
+    permission: plpickup.tp
+    usage: /pickup tp <name>

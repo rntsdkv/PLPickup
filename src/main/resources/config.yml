@@ -6,6 +6,7 @@ messages:
   pickupsNotFound: "&l&cПикапов пока нет, приходите позже...!"
   pickupNameAlreadyUsed: "&l&cПикап с таким именем уже существует, выберите другое!"
   errorBlockID: "&l&cБлока с таким ID не существует!"
+  errorUuid: "&l&cОшибка: неверный Uuid!"
   pickupSet: "&l&6Вы установили пикап!"
   pickupDelete: "&l&6Пикап был удалён!"
   pickupTeleport: "&l&6Вы телепортировались к пикапу!"
