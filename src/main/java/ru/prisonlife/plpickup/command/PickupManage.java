@@ -59,6 +59,10 @@ public class PickupManage implements CommandExecutor{
 
 		if (commandType.equals("set")) {
 
+			if (args.length != 3) {
+				return false;
+			}
+
 			String pickupId = args[1];
 			String pickupName = args[2];
 
@@ -89,6 +93,10 @@ public class PickupManage implements CommandExecutor{
 			player.sendMessage(colorize(format("&l&6Создан пикап %s!", pickupName)));
 
 		} else if (commandType.equals("delete")) {
+
+			if (args.length != 2) {
+				return false;
+			}
 
 			String pickupName = args[0];
 
