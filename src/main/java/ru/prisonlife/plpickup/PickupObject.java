@@ -19,15 +19,17 @@ public class PickupObject {
     private Double y;
     private Double z;
     private Material id;
+    private String text;
     private UUID uuid;
 
-    public PickupObject(String name, World world, Double x, Double y, Double z, Material id, UUID uuid) {
+    public PickupObject(String name, World world, Double x, Double y, Double z, Material id, String text, UUID uuid) {
         this.name = name;
         this.world = world;
         this.x = x;
         this.y = y;
         this.z = z;
         this.id = id;
+        this.text = text;
         this.uuid = uuid;
     }
 
@@ -77,6 +79,14 @@ public class PickupObject {
 
     public void setId(Material id) {
         this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public UUID getUuid() {

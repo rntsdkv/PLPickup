@@ -3,10 +3,7 @@ package ru.prisonlife.plpickup;
 import java.io.File;
 import java.util.UUID;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
@@ -14,6 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.EulerAngle;
 import org.bukkit.entity.ArmorStand;
 import ru.prisonlife.plpickup.command.PickupManage;
+import ru.prisonlife.plpickup.command.PickupSet;
 
 public class Main extends JavaPlugin {
 
@@ -23,10 +21,13 @@ public class Main extends JavaPlugin {
 		return pickupLoader;
 	}
 
-	public static ArmorStand createPickupAsArmorStand(World world, Location location, Material id) {
+	public static ArmorStand createPickupAsArmorStand(World world, Location location, String text, Material id) {
 		ArmorStand armorstand = (ArmorStand) world.spawnEntity(location, EntityType.ARMOR_STAND);
 		armorstand.setVisible(false);
 		armorstand.getEquipment().setHelmet(new ItemStack(id, 1));
+		armorstand.setGravity(false);
+		armorstand.setCustomName(colorize(text));
+		armorstand.setCustomNameVisible(true);
 		return armorstand;
 	}
 
@@ -44,7 +45,8 @@ public class Main extends JavaPlugin {
 		initPickupLoader();
 		initRotationPickups();
 		getLogger().info("PLPickup plugin is enable!");
-		new PickupManage(this);
+		// new PickupManage(this);
+		new PickupSet(this);
 	}
 
 	public void onDisable() {
@@ -71,5 +73,9 @@ public class Main extends JavaPlugin {
 			Runnable rotationTask = getPickupRotationTask(armorStand);
 			Bukkit.getScheduler().runTaskTimer(this, rotationTask, 0, 1);
 		}
+	}
+
+	public static String colorize(String text) {
+		return ChatColor.translateAlternateColorCodes('&', text);
 	}
 }

@@ -1,1 +1,12 @@
+messages:
+  wrongSender: "&l&4This command can use only players!"
+  notEnoughName: "&l&cНеобходимо указать название пикапа!"
+  notEnoughArguments: "&l&cНедостаточно аргументов!"
+  pickupNameNotFound: "&l&cПикапа с таким именем не существует!"
+  pickupsNotFound: "&l&cПикапов пока нет, приходите позже...!"
+  pickupNameAlreadyUsed: "&l&cПикап с таким именем уже существует, выберите другое!"
+  errorBlockID: "&l&cБлока с таким ID не существует!"
+  pickupSet: "&l&6Вы установили пикап!"
+  pickupDelete: "&l&6Пикап был удалён!"
+  pickupTeleport: "&l&6Вы телепортировались к пикапу!"
 pickups:
