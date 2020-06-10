@@ -34,7 +34,7 @@ public class Main extends JavaPlugin {
 		return () -> {
 			if (armorStand != null) {
 				EulerAngle headPose = armorStand.getHeadPose();
-				armorStand.setHeadPose(new EulerAngle(headPose.getX(), headPose.getY() + 0.01, headPose.getZ()));
+				armorStand.setHeadPose(new EulerAngle(headPose.getX(), headPose.getY() + 0.1, headPose.getZ()));
 			}
 		};
 	}
@@ -67,9 +67,9 @@ public class Main extends JavaPlugin {
 
 	private void initRotationPickups() {
 		for (PickupObject pickup : pickupLoader.getPickups()) {
-			ArmorStand pickupAsArmorStand = createPickupAsArmorStand(pickup.getWorld(), pickup.getLocation(), pickup.getId());
+			ArmorStand armorStand = (ArmorStand) Bukkit.getEntity(pickup.getUuid());
 			// get rotating process and start it
-			Runnable rotationTask = getPickupRotationTask(pickupAsArmorStand);
+			Runnable rotationTask = getPickupRotationTask(armorStand);
 			Bukkit.getScheduler().runTaskTimer(this, rotationTask, 0, 1);
 		}
 	}

@@ -98,7 +98,7 @@ public class PickupManage implements CommandExecutor{
 				return false;
 			}
 
-			String pickupName = args[0];
+			String pickupName = args[1];
 
 			if (!pickupLoader.exists(pickupName)) {
 				player.sendMessage(colorize("&l&cТакого пикапа не существует!"));

@@ -60,6 +60,7 @@ public class PickupLoader {
 
     public void removePickupObject(String pickupName) {
         config.set(getPickupConfigPath(pickupName), null);
+        plugin.saveConfig();
     }
 
     public List<PickupObject> getPickups() {
