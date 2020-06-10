@@ -1,8 +1,6 @@
 package ru.prisonlife.plpickup.command;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import org.bukkit.Bukkit;
@@ -82,8 +80,10 @@ public class PickupManage implements CommandExecutor{
 			Double y = playerLocation.getY();
 			Double z = playerLocation.getZ();
 
-			ArmorStand armorStand = createPickupAsArmorStand(player.getWorld(), playerLocation);
-			PickupObject pickupObject = new PickupObject(pickupName, world, x, y, z, Material.valueOf(pickupId), armorStand.getUniqueId());
+			Material armorStandMaterial = Material.valueOf(pickupId);
+
+			ArmorStand armorStand = createPickupAsArmorStand(player.getWorld(), playerLocation, armorStandMaterial);
+			PickupObject pickupObject = new PickupObject(pickupName, world, x, y, z, armorStandMaterial, armorStand.getUniqueId());
 			pickupLoader.savePickupObject(pickupObject);
 
 			// get rotating process and start it
@@ -145,7 +145,7 @@ public class PickupManage implements CommandExecutor{
 		StringBuilder text = new StringBuilder();
 
 		for (PickupObject pickup : list) {
-			text.append(pickup)
+			text.append(pickup.getName())
 					.append(" | Мир: ")
 					.append(pickup.getWorld().getName())
 					.append(" | X: ").append(pickup.getX())
@@ -158,7 +158,10 @@ public class PickupManage implements CommandExecutor{
 	}
 
 	private boolean isValidMaterial(String materialId) {
-		List<String> materials = Arrays.stream(Material.values()).map(Enum::name).collect(Collectors.toList());
+		List<String> materials = new ArrayList<>();
+		for (Material material : Material.values()) {
+			materials.add(material.toString());
+		}
 		return materials.contains(materialId);
 	}
 

@@ -53,8 +53,8 @@ public class PickupLoader {
         config.set(getXCoordinateConfigPath(pickupName), pickupObject.getX());
         config.set(getYCoordinateConfigPath(pickupName), pickupObject.getY());
         config.set(getZCoordinateConfigPath(pickupName), pickupObject.getZ());
-        config.set(getIdConfigPath(pickupName), pickupObject.getId());
-        config.set(getUuidConfigPath(pickupName), pickupObject.getUuid());
+        config.set(getIdConfigPath(pickupName), pickupObject.getId().toString());
+        config.set(getUuidConfigPath(pickupName), pickupObject.getUuid().toString());
         plugin.saveConfig();
     }
 
