@@ -62,7 +62,7 @@ public class PickupManage implements CommandExecutor{
 			String pickupId = args[1];
 			String pickupName = args[2];
 
-			if (isValidMaterial(pickupId)) {
+			if (!isValidMaterial(pickupId)) {
 				player.sendMessage(colorize("&l&cНеправильный id!"));
 				return true;
 			}
