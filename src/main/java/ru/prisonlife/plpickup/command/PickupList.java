@@ -8,6 +8,7 @@ import ru.prisonlife.plpickup.Main;
 import ru.prisonlife.plpickup.PickupLoader;
 import ru.prisonlife.plpickup.PickupObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static ru.prisonlife.plpickup.Main.colorize;
@@ -44,10 +45,14 @@ public class PickupList implements CommandExecutor {
     private String getPickupListText(List<PickupObject> list, String[] strings) {
         StringBuilder text = new StringBuilder();
 
+        ArrayList<String> pickupNames = new ArrayList<>();
+
+        for (PickupObject pickupObject : list) {
+            pickupNames.add(pickupObject.getName());
+        }
+
         text.append(colorize("&l&3Список созданных пикапов:\n&b"));
-
-        text.append(String.join(", ", strings));
-
+        text.append(String.join(", ", pickupNames));
         return text.toString();
     }
 }

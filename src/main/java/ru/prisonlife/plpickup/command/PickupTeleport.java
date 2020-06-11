@@ -45,8 +45,7 @@ public class PickupTeleport implements CommandExecutor {
         }
 
         PickupObject pickupObject = pickupLoader.fromConfig(pickupName);
-        UUID Uuid = pickupObject.getUuid();
-        player.teleport(Bukkit.getEntity(Uuid));
+        player.teleport(pickupObject.getLocation());
 
         player.sendMessage(colorize(plugin.getConfig().getString("messages.pickupTeleport")));
         return true;
