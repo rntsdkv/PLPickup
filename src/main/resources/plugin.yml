@@ -1,0 +1,24 @@
+name: PLPickup
+version: 1.2
+main: ru.prisonlife.plpickup.Main
+commands:
+  pickupset:
+    description: Create a new pickup
+    permission: plpickup.set
+    usage: /pickupset <id> <name> <text>
+  pickupdelete:
+    description: Delete pickup
+    permission: plpickup.delete
+    usage: /pickupdelete <name>
+  pickuplist:
+    description: Show a list of pickups
+    permission: plpickup.list
+    usage: /pickuplist
+  pickupinfo:
+    description: Show info about pickup
+    permission: plpickup.info
+    usage: /pickupinfo <name>
+  pickuptp:
+    description: Teleport to pickup
+    permission: plpickup.tp
+    usage: /pickuptp <name>

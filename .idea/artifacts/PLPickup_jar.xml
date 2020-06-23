@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="PLPickup:jar">
+    <output-path>$PROJECT_DIR$/../../work/SERVER/plugins</output-path>
+    <root id="archive" name="PLPickup.jar">
+      <element id="module-output" name="PLPickup" />
+    </root>
+  </artifact>
+</component>
